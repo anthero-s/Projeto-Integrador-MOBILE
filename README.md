@@ -1,42 +1,41 @@
-# rn-storage-lesson
+# Projeto Música
+### Objetivo do projeto
+O projeto consiste em um app de **lista de músicas**.
 
-Repositório de apoio para aula técnica sobre **persistência de dados em React Native**.
+O usuário pode cadastrar músicas informando:
 
-## Objetivo da aula
+* Nome da música;
+* Cantor;
+* Gênero;
+* Nota.
 
-O projeto começa como um app de **lista de tarefas simples**, com o estado gerenciado apenas em memória via `useState`. Ou seja, no ponto de partida:
+Além disso, permite:
 
-- As tarefas cadastradas **somem ao recarregar o app** — não há nenhum tipo de persistência ainda.
-- O foco inicial é fixar os conceitos de estado, listas (`FlatList`) e componentização antes de introduzir persistência.
+* Adicionar músicas
+* Editar músicas
+* Excluir músicas
 
-A partir dessa base, a aula evolui para implementar a persistência dos dados (por exemplo, com `AsyncStorage` ou outra solução de armazenamento local), fazendo as tarefas sobreviverem ao fechar e reabrir o app.
+Os dados são armazenados localmente utilizando o `AsyncStorage`, permitindo que as músicas permaneçam salvas mesmo depois de fechar e abrir o aplicativo novamente.
 
-## Estrutura do projeto
+### Estrutura do projeto
 
-```
-App.js                        # ponto de entrada, monta a screen principal
+```text
+App.js
 src/
   screens/
-    ListaTarefasScreen.js     # tela com o estado e a lógica da lista de tarefas
+    ListaMusicasScreen.js     # tela das listas de músicas
   components/
-    TarefaItem.js             # componente de um item da lista (concluir/excluir)
+    MusicaItem.js             # componente de um item da lista (editar/excluir)
 ```
 
-## Estado do código
+### Estado do código
 
-O arquivo [src/screens/ListaTarefasScreen.js](src/screens/ListaTarefasScreen.js) está propositalmente incompleto (funções e estado a implementar) para servir de exercício em sala: os alunos devem completar a lógica de adicionar, concluir e excluir tarefas junto ao professor em live coding, antes de avançar para a etapa de persistência.
+O arquivo `src/screens/ListaMusicasScreen.js` contém a lógica principal do aplicativo, sendo responsável por:
 
-## Como rodar
+* Carregar as músicas salvas
+* Salvar as músicas no `AsyncStorage`
+* Adicionar novas músicas
+* Editar músicas cadastradas
+* Excluir músicas
 
-```bash
-npm install
-npx expo start
-```
-
-Escolha rodar no Android, iOS ou Web a partir do menu do Expo CLI.
-
-## Tecnologias
-
-- [Expo](https://docs.expo.dev/versions/v57.0.0/) (SDK 57)
-- React Native
-- Componentização básica com `StyleSheet`, sem bibliotecas de UI externas
+O arquivo `src/components/MusicaItem.js` é responsável pela exibição de cada música e pelos botões de editar e excluir.
